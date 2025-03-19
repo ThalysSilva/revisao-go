@@ -16,9 +16,9 @@ func main() {
 
 func trabalho(nome string) chan string {
 	canal := make(chan string)
-	go func(nome string, c chan string) {
+	go func(nome string, canal chan string) {
 		for i := 1; ; i++ {
-			c <- fmt.Sprintf("Função %v diz: %v", nome, i)
+			canal <- fmt.Sprintf("Função %v diz: %v", nome, i)
 			time.Sleep(time.Millisecond * time.Duration(rand.Intn(1e3)))
 		}
 	}(nome, canal)
